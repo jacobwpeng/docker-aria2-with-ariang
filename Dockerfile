@@ -19,8 +19,6 @@ RUN unzip *.zip
 
 VOLUME /conf
 
-VOLUME /samba
-
 EXPOSE 6800
 
 EXPOSE 8000
