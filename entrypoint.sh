@@ -16,4 +16,10 @@ set -e
 
 nginx
 
-exec aria2c --conf-path /conf/aria2.conf
+CMD="aria2c --conf-path /conf/aria2.conf"
+
+if [ -f /conf/proxychains.conf ]; then
+    exec proxychains4 -q -f /conf/proxychains.conf ${CMD}
+else
+    exec ${CMD}
+fi
